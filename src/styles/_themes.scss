@@ -1,0 +1,25 @@
+// Light theme (default)
+:root {
+  --bg-primary: #f0f0f0;
+  --bg-secondary: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --header-bg: #2c3e50;
+  --header-text: #ffffff;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --card-hover-transform: translateY(-2px);
+}
+
+// Dark theme
+[data-theme='dark'] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --header-bg: #1a1a1a;
+  --header-text: #ffffff;
+  --card-bg: #2d2d2d;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --card-hover-transform: translateY(-2px);
+}

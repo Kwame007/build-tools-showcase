@@ -1,4 +1,4 @@
-import './style.scss';
+import './styles/styles.scss';
 import toolsData from '../data/data.json';
 
 interface Tool {
@@ -11,7 +11,17 @@ interface Tool {
 function createHeader(): HTMLElement {
   const header = document.createElement('header');
   header.className = 'header';
-  header.innerHTML = '<h1>Build Tools Showcase</h1>';
+
+  const title = document.createElement('h1');
+  title.textContent = 'Build Tools Showcase';
+
+  const themeSwitch = document.createElement('button');
+  themeSwitch.className = 'theme-switch';
+  themeSwitch.textContent = 'Toggle Theme';
+  themeSwitch.addEventListener('click', toggleTheme);
+
+  header.appendChild(title);
+  header.appendChild(themeSwitch);
   return header;
 }
 
@@ -29,14 +39,14 @@ function createToolCard(tool: Tool): HTMLElement {
 function createMainContent(): HTMLElement {
   const main = document.createElement('main');
   main.className = 'main';
-  
+
   const toolsList = document.createElement('div');
   toolsList.className = 'tools-list';
-  
+
   toolsData.tools.forEach((tool: Tool) => {
     toolsList.appendChild(createToolCard(tool));
   });
-  
+
   main.appendChild(toolsList);
   return main;
 }
@@ -49,15 +59,29 @@ function createFooter(): HTMLElement {
   return footer;
 }
 
-function initApp() {
+function initApp(): void {
   const app = document.createElement('div');
   app.className = 'app';
-  
+
   app.appendChild(createHeader());
   app.appendChild(createMainContent());
   app.appendChild(createFooter());
-  
+
   document.body.appendChild(app);
+
+  // Initialize theme from localStorage
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }
+}
+
+function toggleTheme(): void {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
 }
 
 initApp();
