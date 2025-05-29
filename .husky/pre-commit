@@ -1,6 +1,2 @@
-# make this an executable with `chmod +x .husky/pre-commit`
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 npm run pre-commit 
 npm test
