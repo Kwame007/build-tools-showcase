@@ -41,6 +41,54 @@
       "name": "Snowpack",
       "description": "A lightning-fast frontend build tool, now deprecated in favor of Vite",
       "category": "Build Tool"
+    },
+    {
+      "id": 8,
+      "name": "Turbopack",
+      "description": "An incremental bundler optimized for JavaScript and TypeScript, written in Rust",
+      "category": "Build Tool"
+    },
+    {
+      "id": 9,
+      "name": "esbuild",
+      "description": "An extremely fast JavaScript bundler and minifier written in Go",
+      "category": "Build Tool"
+    },
+    {
+      "id": 10,
+      "name": "SWC",
+      "description": "A super-fast TypeScript/JavaScript compiler written in Rust",
+      "category": "Build Tool"
+    },
+    {
+      "id": 11,
+      "name": "Rome",
+      "description": "A unified toolchain for JavaScript, TypeScript, JSON, HTML, Markdown, and CSS",
+      "category": "Build Tool"
+    },
+    {
+      "id": 12,
+      "name": "Bun",
+      "description": "An all-in-one JavaScript runtime & toolkit designed for speed, complete with a bundler, test runner, and package manager",
+      "category": "Build Tool"
+    },
+    {
+      "id": 13,
+      "name": "WMR",
+      "description": "A tiny, fast web development tool for modern web apps",
+      "category": "Build Tool"
+    },
+    {
+      "id": 14,
+      "name": "tsup",
+      "description": "The simplest and fastest way to bundle your TypeScript libraries",
+      "category": "Build Tool"
+    },
+    {
+      "id": 15,
+      "name": "Rspack",
+      "description": "A fast Rust-based web bundler with webpack compatibility",
+      "category": "Build Tool"
     }
   ]
 }
