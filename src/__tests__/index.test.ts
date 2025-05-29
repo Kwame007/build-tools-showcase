@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom';
 import { createHeader, createToolCard, toggleTheme } from '../index';
+import moment from 'moment';
 
 describe('Build Tools Showcase', () => {
   beforeEach(() => {
@@ -10,10 +11,13 @@ describe('Build Tools Showcase', () => {
   });
 
   describe('createHeader', () => {
-    it('creates header with title', () => {
+    it('creates header with title and current date', () => {
       const header = createHeader();
       expect(header.querySelector('h1')?.textContent).toBe(
         'Build Tools Showcase'
+      );
+      expect(header.querySelector('.date')?.textContent).toBe(
+        moment().format('MMMM Do YYYY, h:mm:ss a')
       );
     });
   });

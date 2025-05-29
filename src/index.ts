@@ -1,5 +1,6 @@
 import './styles/styles.scss';
 import toolsData from '../data/data.json';
+import moment from 'moment';
 
 interface Tool {
   id: number;
@@ -8,12 +9,16 @@ interface Tool {
   category: string;
 }
 
-function createHeader(): HTMLElement {
+export function createHeader(): HTMLElement {
   const header = document.createElement('header');
   header.className = 'header';
 
   const title = document.createElement('h1');
   title.textContent = 'Build Tools Showcase';
+
+  const date = document.createElement('div');
+  date.className = 'date';
+  date.textContent = moment().format('MMMM Do YYYY, h:mm:ss a');
 
   const themeSwitch = document.createElement('button');
   themeSwitch.className = 'theme-switch';
@@ -21,11 +26,12 @@ function createHeader(): HTMLElement {
   themeSwitch.addEventListener('click', toggleTheme);
 
   header.appendChild(title);
+  header.appendChild(date);
   header.appendChild(themeSwitch);
   return header;
 }
 
-function createToolCard(tool: Tool): HTMLElement {
+export function createToolCard(tool: Tool): HTMLElement {
   const card = document.createElement('div');
   card.className = 'tool-card';
   card.innerHTML = `
@@ -36,14 +42,14 @@ function createToolCard(tool: Tool): HTMLElement {
   return card;
 }
 
-function createMainContent(): HTMLElement {
+export function createMainContent(): HTMLElement {
   const main = document.createElement('main');
   main.className = 'main';
 
   const toolsList = document.createElement('div');
   toolsList.className = 'tools-list';
 
-  toolsData.tools.forEach((tool: Tool) => {
+  toolsData?.tools.forEach((tool: Tool) => {
     toolsList.appendChild(createToolCard(tool));
   });
 
@@ -51,7 +57,7 @@ function createMainContent(): HTMLElement {
   return main;
 }
 
-function createFooter(): HTMLElement {
+export function createFooter(): HTMLElement {
   const footer = document.createElement('footer');
   footer.className = 'footer';
   const currentYear = new Date().getFullYear();
@@ -59,7 +65,7 @@ function createFooter(): HTMLElement {
   return footer;
 }
 
-function initApp(): void {
+export function initApp(): void {
   const app = document.createElement('div');
   app.className = 'app';
 
@@ -76,7 +82,7 @@ function initApp(): void {
   }
 }
 
-function toggleTheme(): void {
+export function toggleTheme(): void {
   const currentTheme = document.documentElement.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 

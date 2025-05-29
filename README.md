@@ -103,12 +103,44 @@ The project uses Husky to enforce code quality before commits:
 
 ## Testing
 
-Currently, the project does not have automated tests set up. To add tests:
+The project uses Jest for unit testing with the following features:
 
-1. Install a testing framework (e.g., Jest)
-2. Configure the test environment
-3. Write tests in the `__tests__` directory
-4. Run tests using `npm test`
+- TypeScript support through ts-jest
+- DOM testing with jsdom
+- Code coverage reporting
+- Mock support for static assets and CSS modules
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage report
+npm run test:coverage
+```
+
+### Test Structure
+
+Tests are located in the `src/__tests__` directory and follow the naming pattern `*.test.ts`. The test suite includes:
+
+- Component rendering tests
+- DOM manipulation tests
+- Theme switching functionality
+- Local storage integration
+- Event handling
+
+<!-- ### Coverage Requirements
+
+The project maintains a minimum code coverage threshold of 80% for:
+
+- Branches
+- Functions
+- Lines
+- Statements -->
 
 ## Project Structure
 

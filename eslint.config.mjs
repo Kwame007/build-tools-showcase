@@ -19,10 +19,7 @@ export default [
       },
       globals: {
         ...globals.browser,
-        localStorage: 'readonly',
-        console: 'readonly',
-        document: 'readonly',
-        HTMLElement: 'readonly',
+        ...globals.jest,
       },
     },
     plugins: {
@@ -30,10 +27,6 @@ export default [
     },
     rules: {
       ...tseslint.configs.recommended.rules,
-      '@typescript-eslint/explicit-function-return-type': 'warn',
-      '@typescript-eslint/no-unused-vars': 'error',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-require-imports': 'off',
       'no-restricted-properties': [
         'error',
         {
@@ -49,6 +42,19 @@ export default [
     files: ['**/*.cjs'],
     languageOptions: {
       sourceType: 'commonjs',
+    },
+  },
+  {
+    files: [
+      '**/__tests__/**',
+      '**/*.test.ts',
+      '**/*.test.tsx',
+      '**/jest.setup.js',
+      '**/__mocks__/**',
+    ],
+    rules: {
+      'no-undef': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
   {
