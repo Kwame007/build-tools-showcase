@@ -5,13 +5,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production webpack --config webpack.config.cjs",
-    "start": "NODE_ENV=development webpack serve --config webpack.config.cjs --open",
+    "dev": "NODE_ENV=development webpack serve --config webpack.config.cjs --open",
     "lint": "eslint . --ext .ts,.tsx --ignore-pattern 'dist/**/*'",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix --ignore-pattern 'dist/**/*'",
-    "format": "prettier --write \"src/**/*.{ts,tsx,scss,css,json}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,scss,css,json}\"",
+    "check": "eslint . --ext .ts,.tsx --ignore-pattern 'dist/**/*' && npm run format",
+    "format": "prettier --check \"src/**/*.{ts,tsx,scss,css,json}\"",
     "prepare": "husky",
-    "pre-commit": "npm run lint && npm run format:check"
+    "pre-commit": "npm run check"
   },
   "keywords": [],
   "author": "",
