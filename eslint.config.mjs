@@ -20,6 +20,7 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.jest,
+        __dirname: 'readonly',
       },
     },
     plugins: {
@@ -42,6 +43,10 @@ export default [
     files: ['**/*.cjs'],
     languageOptions: {
       sourceType: 'commonjs',
+      globals: {
+        ...globals.node,
+        __dirname: 'readonly',
+      },
     },
   },
   {
@@ -64,7 +69,8 @@ export default [
       '*.config.js',
       '*.config.cjs',
       '*.config.mjs',
-      'webpack.config.cjs',
+      'webpack.*.cjs',
+      'webpack.*.js',
     ],
   },
   prettier,
