@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import globals from 'globals';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import prettier from 'eslint-config-prettier';
@@ -13,8 +14,12 @@ export default [
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
+        project: true,
+        tsconfigRootDir: import.meta.dirname,
       },
       globals: {
+        ...globals.browser,
+        localStorage: 'readonly',
         console: 'readonly',
         document: 'readonly',
         HTMLElement: 'readonly',
@@ -37,6 +42,7 @@ export default [
           message: 'Please use a proper logging system instead of console.warn',
         },
       ],
+      'no-var': 'error',
     },
   },
   {
